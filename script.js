@@ -79,7 +79,7 @@ function removePixels() {                   //Removes all the pixels from grid
     });
 }
 
-function dragEffect(){
+function dragEffect() {
     const pixels = document.querySelectorAll('.pixels');
     pixels.forEach((pixel) => {
         pixel.addEventListener('dragenter', () => {
@@ -87,6 +87,22 @@ function dragEffect(){
         });
         pixel.addEventListener('mousedown', () => {
             pixel.style.background=color;
+        });
+    });
+}
+
+function randomDragEffect() {
+    const pixels = document.querySelectorAll('.pixels');
+    pixels.forEach((pixel) => {
+        pixel.addEventListener('dragenter', () => {
+            const colors = ['black', 'rebeccapurple', 'lightblue', 'blue', 'green', 'yellow', 'orange', 'red'];
+            const randomIndex = Math.floor(Math.random()*colors.length);
+            pixel.style.background=colors[randomIndex];
+        });
+        pixel.addEventListener('mousedown', () => {
+            const colors = ['black', 'rebeccapurple', 'lightblue', 'blue', 'green', 'yellow', 'orange', 'red'];
+            const randomIndex = Math.floor(Math.random()*colors.length);
+            pixel.style.background=colors[randomIndex];
         });
     });
 }
@@ -107,25 +123,20 @@ inputBtn.addEventListener('click', () => {   //change the dimensions of grid bas
 });
 
 blackPen.addEventListener('click', () => {
+    dragEffect();
     color = 'black';
 });
 
 eraser.addEventListener('click', () => {
+    dragEffect();
     color = 'none';
 });
 
 clearBtn.addEventListener('click', () => {
+    dragEffect();
     location.reload();
 });
 
-
-
-
-
-
-
-
-
-
-
-
+rainbowPen.addEventListener('click', () => {
+    randomDragEffect();
+});
