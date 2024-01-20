@@ -16,11 +16,19 @@ body {
     src: url(./font/Lora-Italic-VariableFont_wght.ttf);
 }
 
+@font-face {
+    font-family: pixelFont;
+    src: url(./font/VT323-Regular.ttf);
+}
+
 h1 {
     color: rebeccapurple;
     background-color: lightblue;
-    padding: 10px;
+    padding: 8px;
     border-radius: 12px;
+    font-family: pixelFont;
+    font-size: 42px;
+    border: 2px solid rebeccapurple;
 }
 
 .container {
@@ -74,7 +82,7 @@ h1 {
     justify-content: center;
     align-items: center;
     flex: auto;
-    padding: 25px;
+    padding: 10px;
 }
 
 .inputWrapper {
