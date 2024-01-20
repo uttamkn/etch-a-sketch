@@ -1,3 +1,4 @@
+const body = document.querySelector('body');
 const container = document.createElement('div');
 container.classList.add('container');
 
@@ -56,7 +57,7 @@ inputContainer.appendChild(inputWrapper);
 container.appendChild(optAndGrid);
 container.appendChild(inputContainer);
 
-document.querySelector('body').appendChild(container);
+body.appendChild(container);
 
 //functions
 function addPixels(dimensions) {           //Adds pixels to the grid based on the given dimensions
@@ -168,3 +169,13 @@ rainbowPen.addEventListener('click', () => {
 shadeBtn.addEventListener('click', () => {
     shadeEffect();
 });
+
+const footer = document.createElement('div');
+footer.classList.add('footer');
+footer.innerHTML='Photo by <a href="https://unsplash.com/@pbernardon?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Pascal Bernardon</a> on <a href="https://unsplash.com/photos/illustration-of-marvels-avengers-zWHZ_QsU4rc?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>';
+body.appendChild(footer);
+
+const gitHubLink = document.createElement('div');
+gitHubLink.innerHTML='<a href="https://github.com/uttamkn" target="_blank"><i class="fab fa-github"></i>  uttamkn</a>';
+gitHubLink.classList.add('gitLink');
+body.appendChild(gitHubLink);
