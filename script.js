@@ -9,7 +9,8 @@ options.classList.add('options');
 const grid = document.createElement('div');
 grid.classList.add('grid');
 
-//options
+//options(to change the colors of our pen(or paint brush whatever))
+let color='black';      //default color
 const blackPen = document.createElement('button');
 blackPen.classList.add('optionBtns');
 blackPen.innerText='Black';
@@ -36,7 +37,7 @@ userInputBox.setAttribute('type', 'number');
 userInputBox.setAttribute('id', 'userInput');
 const inputBtn = document.createElement('button');
 inputBtn.classList.add('inputBtn');
-inputBtn.innerText='enter';
+inputBtn.innerText='Change size';
 
 //appending elements
 options.appendChild(blackPen);
@@ -104,6 +105,19 @@ inputBtn.addEventListener('click', () => {   //change the dimensions of grid bas
         alert("ERROR: Input a number between 1 and 100");
     }
 });
+
+blackPen.addEventListener('click', () => {
+    color = 'black';
+});
+
+eraser.addEventListener('click', () => {
+    color = 'none';
+});
+
+clearBtn.addEventListener('click', () => {
+    location.reload();
+});
+
 
 
 
