@@ -28,13 +28,22 @@ body {
     flex: auto;
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .grid {             
+    max-height: 362px;
+    max-width: 362px;
     display: flex;
-    height: 1000px;
-    width: 1000px;
+    flex-wrap: wrap;
+    box-sizing: border-box;
     border: 1px solid black;
+}
+
+.pixels {
+    border: 1px solid #eeeeee;
+    box-sizing: border-box;
 }
 
 .inputContainer {
