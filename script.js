@@ -61,7 +61,7 @@ body.appendChild(container);
 
 //functions
 function addPixels(dimensions) {           //Adds pixels to the grid based on the given dimensions
-    let pixelHeight = 280/dimensions;
+    let pixelHeight = 460/dimensions;
     
     for (let i=0; i<(dimensions*dimensions); i++) {             
         const pixel = document.createElement('div');
