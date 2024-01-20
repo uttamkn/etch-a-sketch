@@ -69,7 +69,7 @@ function addPixels(dimensions) {           //Adds pixels to the grid based on th
         pixel.style.width=`${pixelHeight}px`
         grid.appendChild(pixel);
     }
-    dragEffect();
+    staticColorEffect();
 }
 
 function removePixels() {                   //Removes all the pixels from grid
@@ -79,35 +79,54 @@ function removePixels() {                   //Removes all the pixels from grid
     });
 }
 
-function dragEffect() {
+function staticColorEffect() {               //changes the color of pixels when interacted with
     const pixels = document.querySelectorAll('.pixels');
     pixels.forEach((pixel) => {
         pixel.addEventListener('dragenter', () => {
             pixel.style.background=color;
+            pixel.style.opacity='1';        //to remove shade effect
         });
         pixel.addEventListener('mousedown', () => {
             pixel.style.background=color;
+            pixel.style.opacity='1';
         });
     });
 }
 
-function randomDragEffect() {
+function rainbowEffect() {                  //randomize color changes
     const pixels = document.querySelectorAll('.pixels');
     pixels.forEach((pixel) => {
         pixel.addEventListener('dragenter', () => {
-            const colors = ['black', 'rebeccapurple', 'lightblue', 'blue', 'green', 'yellow', 'orange', 'red'];
+            const colors = ['rebeccapurple', 'lightblue', 'blue', 'green', 'yellow', 'orange', 'red'];
             const randomIndex = Math.floor(Math.random()*colors.length);
             pixel.style.background=colors[randomIndex];
+            pixel.style.opacity='1';
         });
         pixel.addEventListener('mousedown', () => {
-            const colors = ['black', 'rebeccapurple', 'lightblue', 'blue', 'green', 'yellow', 'orange', 'red'];
+            const colors = ['rebeccapurple', 'lightblue', 'blue', 'green', 'yellow', 'orange', 'red'];
             const randomIndex = Math.floor(Math.random()*colors.length);
             pixel.style.background=colors[randomIndex];
+            pixel.style.opacity='1';
         });
     });
 }
 
-addPixels(16);                               //default grid
+function shadeEffect() {                    //progressive darkening effect
+    const pixels = document.querySelectorAll('.pixels');
+    pixels.forEach((pixel) => {
+        let density = 0;
+        pixel.addEventListener('dragenter', () => {
+            density = density+0.1;
+            pixel.style.opacity = `${density}`;
+        });
+        pixel.addEventListener('mousedown', () => {
+            density = density+0.1;
+            pixel.style.opacity = `${density}`;
+        });
+    });
+}
+
+addPixels(16);              //default grid
 
 //Event listeners
 inputBtn.addEventListener('click', () => {   //change the dimensions of grid based on the user input
@@ -123,20 +142,29 @@ inputBtn.addEventListener('click', () => {   //change the dimensions of grid bas
 });
 
 blackPen.addEventListener('click', () => {
-    dragEffect();
+    staticColorEffect();
     color = 'black';
 });
 
 eraser.addEventListener('click', () => {
-    dragEffect();
+    staticColorEffect();
     color = 'none';
 });
 
 clearBtn.addEventListener('click', () => {
-    dragEffect();
-    location.reload();
+    // location.reload();
+    const pixels = document.querySelectorAll('.pixels');
+    pixels.forEach((pixel) => {
+        pixel.style.background='none';
+        pixel.style.opacity='1';        //resets opacity 
+    });
+    staticColorEffect();
 });
 
 rainbowPen.addEventListener('click', () => {
-    randomDragEffect();
+    rainbowEffect();
+});
+
+shadeBtn.addEventListener('click', () => {
+    shadeEffect();
 });
