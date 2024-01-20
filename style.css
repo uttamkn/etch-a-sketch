@@ -22,13 +22,13 @@ body {
 }
 
 h1 {
-    color: rebeccapurple;
+    color: black;
     background-image: url(./imgs/paper-background.avif);
     padding: 8px;
     border-radius: 12px;
     font-family: pixelFont;
     font-size: 42px;
-    border: 2px solid rebeccapurple;
+    border: 2px solid black;
 }
 
 .container {
@@ -39,14 +39,14 @@ h1 {
     align-items: center;
     justify-content: center;
     background-image: url(./imgs/paper-background.avif);
-    border: 2px solid rebeccapurple;
+    border: 2px solid black;
     border-radius: 12px;
 }
 
 .optAndGrid {
     display: flex;
-    border-bottom: 2px solid rebeccapurple;
-    padding: 10px 10px 10px 0px;
+    border-bottom: 2px solid black;
+    padding: 15px 15px 15px 0px;
 }
 
 .options {
@@ -61,6 +61,7 @@ h1 {
 .optionBtns {
     font-size: 12px;
     min-width: 65px;
+    font-family: inherit;
 }
 
 .grid {             
@@ -99,6 +100,7 @@ input[type=number] {
     border-radius: 0px;
     border: 1px solid black;
     cursor: pointer;
+    font-family: inherit;
 }
 
 .inputBtn:hover {
