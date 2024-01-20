@@ -1,22 +1,49 @@
 const container = document.createElement('div');
-const optAndGrid = document.createElement('div'); 
-const options = document.createElement('div');
-const grid = document.createElement('div');
-const inputContainer = document.createElement('div');
-const inputWrapper = document.createElement('div');
-const userInputBox = document.createElement('input');
-const inputBtn = document.createElement('button');
-
 container.classList.add('container');
+
+//viewport
+const optAndGrid = document.createElement('div'); 
 optAndGrid.classList.add('optAndGrid');
+const options = document.createElement('div');
 options.classList.add('options');
+const grid = document.createElement('div');
 grid.classList.add('grid');
+
+//options
+const blackPen = document.createElement('button');
+blackPen.classList.add('optionBtns');
+blackPen.innerText='Black';
+const rainbowPen = document.createElement('button');
+rainbowPen.classList.add('optionBtns');
+rainbowPen.innerText='Rainbow';
+const shadeBtn = document.createElement('button');
+shadeBtn.classList.add('optionBtns');
+shadeBtn.innerText='Shade';
+const eraser = document.createElement('button');
+eraser.classList.add('optionBtns');
+eraser.innerText='Eraser';
+const clearBtn = document.createElement('button'); 
+clearBtn.classList.add('optionBtns');
+clearBtn.innerText='Clear';
+
+//input
+const inputContainer = document.createElement('div');
 inputContainer.classList.add('inputContainer');
+const inputWrapper = document.createElement('div');
 inputWrapper.classList.add('inputWrapper')
+const userInputBox = document.createElement('input');
 userInputBox.setAttribute('type', 'number');
 userInputBox.setAttribute('id', 'userInput');
+const inputBtn = document.createElement('button');
 inputBtn.classList.add('inputBtn');
 inputBtn.innerText='enter';
+
+//appending elements
+options.appendChild(blackPen);
+options.appendChild(rainbowPen);
+options.appendChild(shadeBtn);
+options.appendChild(eraser);
+options.appendChild(clearBtn);
 
 optAndGrid.appendChild(options);
 optAndGrid.appendChild(grid);
@@ -30,6 +57,7 @@ container.appendChild(inputContainer);
 
 document.querySelector('body').appendChild(container);
 
+//functions
 function addPixels(dimensions) {           //Adds pixels to the grid based on the given dimensions
     let pixelHeight = 280/dimensions;
     
@@ -54,27 +82,33 @@ function dragEffect(){
     const pixels = document.querySelectorAll('.pixels');
     pixels.forEach((pixel) => {
         pixel.addEventListener('dragenter', () => {
-            pixel.style.background='black';
+            pixel.style.background=color;
         });
         pixel.addEventListener('mousedown', () => {
-            pixel.style.background='black';
+            pixel.style.background=color;
         });
     });
 }
 
 addPixels(16);                               //default grid
 
-inputBtn.addEventListener('click', () => {
+//Event listeners
+inputBtn.addEventListener('click', () => {   //change the dimensions of grid based on the user input
     let userInput = Number(userInputBox.value);
 
     if(userInput>0 && userInput <=100) {
-        removePixels();                     //to change the dimensions of grid
+        removePixels();         
         addPixels(userInput);
     }
     else {
         alert("ERROR: Input a number between 1 and 100");
     }
 });
+
+
+
+
+
 
 
 
