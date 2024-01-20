@@ -1,0 +1,17 @@
+body {
+    height: 100vh;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@font-face {
+    font-family: lora;
+    src: url(./font/Lora-Italic-VariableFont_wght.ttf);
+}
+
+.container {
+    font-family: lora;
+    font-size: 16px;
+}
